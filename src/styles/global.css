@@ -1,0 +1,9 @@
+body {
+    background: #915924;
+    margin: 0;
+}
+h1,h2,h3,h4,a,p,li {
+    color: #f0ba83;
+
+    font-weight: normal;
+}
