@@ -3,14 +3,11 @@
 // @ts-nocheck
     export async function loadData() {
         try {
-            const res = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+            const res = await axios.get('https://williezeng.fly.dev/cards/?format=json', {
                 headers: {},
                 params: {}
             }); 
             const guides = await res.data
-            console.log("?")
-            console.log(res)
-            console.log(guides)
             return {
                 props: {
                     guides
@@ -39,29 +36,30 @@
      })
 </script>
 
-<div class="cards">
-    <ul>
-        {#if Array.isArray(guides)}
-            {#each guides as guide}
-                <li>
-                    <a data-sveltekit-preload-data="hover" href={`/cards/${guide.id}`}>{guide.title}</a>
-                </li>
-            {/each}
-        {:else}
-            <p>No guides available</p>
-        {/if}
-    </ul>
+<div id="cardContainer">
+    <div id="cardGrid">
+        {#each new Array(78) as _, i}
+            <img src="\cardback.png" class="card" alt={`Card ${i + 1}`}>
+        {/each}
+    </div>
 </div>
 
 <style>
-    ul {
-        list-style-type: none;
-        padding: 0;
+    #cardContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    a {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px;
-        border: 1px dotted rgba(255,255,255,0.2)
+
+    #cardGrid {
+        display: grid;
+        grid-template-columns: repeat(13, 100px);
+        gap: 25px;
+        grid-row-gap: 0px;
+    }
+
+    .card {
+        width: 150%;
+        margin: 10px;
     }
 </style>

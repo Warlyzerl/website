@@ -1,9 +1,24 @@
+html, body { @apply h-full; }
+
 body {
-    background: #915924;
-    margin: 0;
+    background-color:#99eeff;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(var(--theme-font-color-base) / 0.33) 0px, transparent 50%),
+		radial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 h1,h2,h3,h4,a,p,li {
-    color: #f0ba83;
 
     font-weight: normal;
+}
+
+.header-padding{
+    padding: 25px;
+}
+
+.header-text {
+
 }
